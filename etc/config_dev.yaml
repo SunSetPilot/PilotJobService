@@ -1,0 +1,18 @@
+DebugMode: true
+AppName: pilot-job-service
+MySQL: "root:123456@tcp(127.0.0.1:3306)/robot_all_in_one?charset=utf8mb4&parseTime=True&loc=Local"
+LogPath: ./logs
+
+Job:
+  DeleteExchangeRateJob:
+    Enabled: true
+    Cron: "0 * * * * "
+    ExpireDays: 35
+
+  FetchExchangeRateJob:
+    Enabled: true
+    Cron: "*/5 * * * * * * "
+
+ThirdParty:
+  Bank:
+    CmbExchangeRateUrl: "https://m.cmbchina.com/api/rate/fx-rate"
